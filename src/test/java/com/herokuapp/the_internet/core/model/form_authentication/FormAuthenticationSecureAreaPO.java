@@ -15,14 +15,12 @@ public class FormAuthenticationSecureAreaPO extends BasePageObject {
     private final SelenideElement flashMessage = $(By.cssSelector("#flash"));
     private final SelenideElement logout =  $(By.cssSelector(".button.secondary.radius"));
 
-    @Override
     @Step("Получаем Заголовок страницы")
     @Attachment("Заголовок:")
     public String getTitle() {
         return title.getText();
     }
 
-    @Override
     @Step("Получаем первый абзац или описание страницы")
     @Attachment("Абзац или описание")
     public String getFirstParagraph() {

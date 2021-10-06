@@ -1,6 +1,7 @@
 package com.herokuapp.the_internet.core.model.frames;
 
 import com.codeborne.selenide.SelenideElement;
+import com.herokuapp.the_internet.core.model.BasePageObject;
 import com.herokuapp.the_internet.core.model.frames.iframe.IFramePO;
 import com.herokuapp.the_internet.core.model.frames.nested_frame.NestedFramePO;
 import io.qameta.allure.Step;
@@ -8,9 +9,9 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class FramesPO {
+public class FramesPO extends BasePageObject {
 
-    public static final String URL = "https://the-internet.herokuapp.com/frames";
+    public static final String URL = baseURL + "/frames";
     private final SelenideElement nestedFrames = $(By.linkText("Nested Frames"));
     private final SelenideElement iFrame = $(By.linkText("iFrame"));
 

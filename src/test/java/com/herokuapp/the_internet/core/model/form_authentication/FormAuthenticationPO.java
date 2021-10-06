@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class FormAuthenticationPO extends BasePageObject {
-    public static final String URL = "https://the-internet.herokuapp.com/login";
+    public static final String URL = baseURL + "/login";
     private final SelenideElement title = $(By.cssSelector(".example h2"));
     private final SelenideElement paragraph = $(By.cssSelector(".example h4"));
     private final SelenideElement userNameInput = $(By.id("username"));
@@ -19,14 +19,12 @@ public class FormAuthenticationPO extends BasePageObject {
     private final SelenideElement flashMessage = $(By.cssSelector("#flash"));
 
 
-    @Override
     @Step("Получаем Заголовок страницы")
     @Attachment("Заголовок:")
     public String getTitle() {
         return title.getText();
     }
 
-    @Override
     @Step("Получаем первый абзац или описание страницы")
     @Attachment("Абзац или описание")
     public String getFirstParagraph() {

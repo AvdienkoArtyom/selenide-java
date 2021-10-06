@@ -4,7 +4,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class SingleCollector {
-    public static <T> Collector<T, ?, T> toSingleton(final String element) {
+    public static <T> Collector<T, ?, T> toSingleElement(final String element) {
         return Collectors.collectingAndThen(
                 Collectors.toList(),
                 list -> {

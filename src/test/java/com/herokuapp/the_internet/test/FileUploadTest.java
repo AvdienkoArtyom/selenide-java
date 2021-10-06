@@ -15,13 +15,13 @@ public class FileUploadTest {
     public void fileUploadTest(){
         FileUploadPO pageObject = open(FileUploadPO.URL, FileUploadPO.class);
 
-        Validation.checkingOptionsForExpectedHeaders(pageObject, FileUploadData.TITLE_BEFORE_DOWNLOAD);
+        Validation.checkText(pageObject.getTitle(), FileUploadData.TITLE_BEFORE_DOWNLOAD);
 
-        pageObject.chooseFailToDownload(FileUploadData.FILE_TO__UPLOAD);
+        pageObject.chooseFileToDownload(FileUploadData.FILE_TO__UPLOAD);
 
         pageObject.upLoadButton();
 
-        Validation.checkingOptionsForExpectedHeaders(pageObject, FileUploadData.TITLE_AFTER_DOWNLOAD);
+        Validation.checkText(pageObject.getTitle(), FileUploadData.TITLE_AFTER_DOWNLOAD);
 
     }
 }

@@ -2,6 +2,7 @@ package com.herokuapp.the_internet.core.model.java_script_alerts;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.herokuapp.the_internet.core.model.BasePageObject;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
@@ -9,9 +10,9 @@ import org.openqa.selenium.support.How;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class JavaScriptAlertsPO {
+public class JavaScriptAlertsPO extends BasePageObject {
 
-    public static final String URL = "https://the-internet.herokuapp.com/javascript_alerts";
+    public static final String URL = baseURL + "/javascript_alerts";
     private ElementsCollection buttons =  $$(By.cssSelector(".example ul li"));
     private SelenideElement result = $(By.id("result"));
 

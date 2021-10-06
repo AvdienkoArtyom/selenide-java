@@ -11,27 +11,32 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.actions;
 
 public class HorizontalSliderPO extends BasePageObject {
-    public static final String URL = "https://the-internet.herokuapp.com/horizontal_slider";
+    public static final String URL = baseURL + "/horizontal_slider";
     private final SelenideElement title = $(By.cssSelector(".example h4"));
+    private final SelenideElement firstParagraph = $(By.cssSelector(".example p"));
     private final SelenideElement input = $(By.cssSelector("input[type='range']"));
     private final SelenideElement range = $(By.id("range"));
 
-    @Override
+    @Step("Получаем Заголовок страницы")
+    @Attachment("Заголовок:")
+    public String getTitle() {
+        return title.getText();
+    }
+
     @Step("Получаем первый абзац или описание страницы")
     @Attachment("Абзац или описание")
     public String getFirstParagraph() {
-        return title.getText();
+        return firstParagraph.getText();
     }
-    //первый способ
 
     @Step("Переместить бегунок на шаг вправо")
-    public String toRight(){
+    public String toRight() {
         input.sendKeys(Keys.RIGHT);
         return range.getText();
     }
 
     @Step("Переместить бегунок на шаг влево")
-    public String toLeft(){
+    public String toLeft() {
         input.sendKeys(Keys.LEFT);
         return range.getText();
     }
@@ -39,7 +44,7 @@ public class HorizontalSliderPO extends BasePageObject {
     // второй способ, середина 0 лево -70 право +70
 
     @Step("Задаём значение бегунка {value}")
-    public String toLeftOrRight(int value){
+    public String toLeftOrRight(int value) {
         actions().dragAndDropBy(input, value, 0).build().perform();
         return range.getText();
     }

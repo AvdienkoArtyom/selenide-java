@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class FilterNoBrokenImages {
+public class FilterCorrectImages {
 
     @Step("Проверяем и фильтруем изображения которые загрузились и корректно отображаются")
-    public static List<SelenideElement> getNoBrokenImage(ElementsCollection images) {
+    public static List<SelenideElement> getCorrectImage(ElementsCollection images) {
         Allure.addAttachment("Общее количество изображений", String.valueOf(images.size()));
         List<SelenideElement> correctImages = filter(images);
         Allure.addAttachment("Изображения которые загрузились и корректно отображаются",
@@ -21,11 +21,11 @@ public class FilterNoBrokenImages {
         return correctImages;
     }
 
-    public static List<SelenideElement> filter(ElementsCollection elements){
-        return elements.stream().filter(FilterNoBrokenImages::isNoBroken).collect(Collectors.toList());
+    private static List<SelenideElement> filter(ElementsCollection elements){
+        return elements.stream().filter(FilterCorrectImages::isCorrect).collect(Collectors.toList());
     }
 
-    private static boolean isNoBroken(SelenideElement selenideElement) {
+    private static boolean isCorrect(SelenideElement selenideElement) {
         return executeJavaScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", selenideElement);
     }
 }

@@ -1,13 +1,14 @@
 package com.herokuapp.the_internet.core.model.dynamic_controls;
 
 import com.codeborne.selenide.SelenideElement;
+import com.herokuapp.the_internet.core.model.BasePageObject;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class DynamicControlsPO {
-    public static final String URL = "https://the-internet.herokuapp.com/dynamic_controls";
+public class DynamicControlsPO extends BasePageObject {
+    public static final String URL = baseURL + "/dynamic_controls";
     private final SelenideElement checkbox = $(By.cssSelector("#checkbox"));
     private final SelenideElement dynamicAddRemoveButton =  $(By.cssSelector("#checkbox-example button"));
     private final SelenideElement loadingAnimationAfterAddRemoveButton =

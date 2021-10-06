@@ -1,8 +1,8 @@
 package com.herokuapp.the_internet.test;
 
-import com.herokuapp.the_internet.core.model.file_downloader.FileDownLoaderData;
+import com.herokuapp.the_internet.core.model.file_downloader.FileDownloaderData;
 import com.herokuapp.the_internet.core.model.file_downloader.FileDownloaderPO;
-import com.herokuapp.the_internet.core.utils.FileDownLoadByUrl;
+import com.herokuapp.the_internet.core.utils.FileDownloadByUrl;
 import com.herokuapp.the_internet.core.validation.Validation;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.Test;
@@ -18,10 +18,10 @@ public class FileDownloaderTest {
     public void fileDownloaderTest() {
         open(FileDownloaderPO.URL, FileDownloaderPO.class);
 
-        Path toDownload = FileDownLoaderData.FILE_PATH_TO_SAVE;
+        Path toDownload = FileDownloaderData.FILE_PATH_TO_SAVE;
 
-        FileDownLoadByUrl.downLoad(FileDownLoaderData.URL_TO_DOWNLOAD, toDownload);
+        FileDownloadByUrl.downLoad(FileDownloaderData.URL_TO_DOWNLOAD, toDownload);
 
-        Validation.checkTwoFile(FileDownLoaderData.EXPECTED_FILE_PATH, toDownload);
+        Validation.checkTwoFile(FileDownloaderData.EXPECTED_FILE_PATH, toDownload);
     }
 }

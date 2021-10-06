@@ -4,6 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.herokuapp.the_internet.core.model.BasePageObject;
 import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
@@ -13,7 +14,8 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class AddRemoveElementsPO extends BasePageObject {
 
-    public static final String URL = "https://the-internet.herokuapp.com/add_remove_elements/";
+    public static final String URL = baseURL + "/add_remove_elements/";
+    private final SelenideElement title = $(".example h3");
     private final SelenideElement addElement =
             $(By.cssSelector(".example button"));
     private final ElementsCollection collectionDeleteElement =
@@ -22,9 +24,10 @@ public class AddRemoveElementsPO extends BasePageObject {
             $$(By.className("added-manually")).get(0);
     private long size = 0;
 
-    @Override
-    public String getFirstParagraph() {
-        throw new RuntimeException("У данной страници нет абзаца или описания");
+    @Step("Получаем Заголовок страницы")
+    @Attachment("Заголовок:")
+    public String getTitle() {
+        return title.getText();
     }
 
     @Step("Жмем на кнопку добавить элемент")

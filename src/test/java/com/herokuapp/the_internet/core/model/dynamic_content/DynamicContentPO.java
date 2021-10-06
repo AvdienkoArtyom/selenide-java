@@ -2,6 +2,7 @@ package com.herokuapp.the_internet.core.model.dynamic_content;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.herokuapp.the_internet.core.model.BasePageObject;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -11,8 +12,8 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class DynamicContentPO {
-    public static final String URL = "https://the-internet.herokuapp.com/dynamic_content";
+public class DynamicContentPO extends BasePageObject {
+    public static final String URL = baseURL + "/dynamic_content";
     private final ElementsCollection contents =
             $$(By.cssSelector(".example .row #content .row"));
     private final SelenideElement refresh = $(By.linkText("click here"));

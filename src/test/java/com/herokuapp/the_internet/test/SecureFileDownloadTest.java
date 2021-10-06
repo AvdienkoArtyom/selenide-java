@@ -3,7 +3,7 @@ package com.herokuapp.the_internet.test;
 import com.herokuapp.the_internet.core.model.secure_file_download.SecureFileDownloadData;
 import com.herokuapp.the_internet.core.model.secure_file_download.SecureFileDownloadPO;
 import com.herokuapp.the_internet.core.utils.ComparingTwoFiles;
-import com.herokuapp.the_internet.core.utils.FileDownLoadByUrl;
+import com.herokuapp.the_internet.core.utils.FileDownloadByUrl;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +18,7 @@ public class SecureFileDownloadTest {
 
         po.login();
 
-        FileDownLoadByUrl.downLoad(SecureFileDownloadData.URL_TO_DOWNLOAD, SecureFileDownloadData.FILE_PATH_TO_SAVE);
+        FileDownloadByUrl.downLoad(SecureFileDownloadData.URL_TO_DOWNLOAD, SecureFileDownloadData.FILE_PATH_TO_SAVE);
 
         ComparingTwoFiles.comparing(SecureFileDownloadData.EXPECTED_FILE_PATH,
                 SecureFileDownloadData.FILE_PATH_TO_SAVE);

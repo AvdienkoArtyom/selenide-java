@@ -1,12 +1,13 @@
 package com.herokuapp.the_internet.core.model.javascript_onload_event_error;
 
+import com.herokuapp.the_internet.core.model.BasePageObject;
 import org.openqa.selenium.JavascriptException;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class JavaScriptOnloadEventErrorPO {
-    public static final String URL = "https://the-internet.herokuapp.com/javascript_error";
+public class JavaScriptOnloadEventErrorPO extends BasePageObject {
+    public static final String URL = baseURL + "/javascript_error";
 
     @Step("Получаем exception от js на странице")
     public String loadJSException(){

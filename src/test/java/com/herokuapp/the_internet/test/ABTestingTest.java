@@ -26,8 +26,8 @@ public class ABTestingTest {
                 ABTestingData.FIRST_RANDOM_TITLE,
                 ABTestingData.SECOND_RANDOM_TITLE);
 
-        Validation.checkingTextFirstParagraph(
-                pageObject,
+        Validation.checkText(
+                pageObject.getFirstParagraph(),
                 ABTestingData.FIRST_PARAGRAPH);
 
     }

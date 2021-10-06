@@ -11,14 +11,14 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class FloatingMenuPO extends BasePageObject {
-    public static final String URL = "https://the-internet.herokuapp.com/floating_menu#home";
+    public static final String URL = baseURL + "/floating_menu#home";
     public static final String TEXT_BOTTOM_ELEMENT = "Elemental Selenium";
     private final SelenideElement firstParagraph =
             $(By.cssSelector(".example .row scroll.large-10.columns.large-centered p"));
     private final ElementsCollection floatMenu =
             $$(By.cssSelector("#menu li"));
+    private final SelenideElement title = $(".example h3");
 
-    @Override
     @Step("Получаем первый абзац или описание страницы")
     @Attachment("Абзац или описание")
     public String getFirstParagraph() {
@@ -26,12 +26,18 @@ public class FloatingMenuPO extends BasePageObject {
     }
 
     @Step("Получаем элементы плавающего меню на странице")
-    public ElementsCollection getMenuElement(){
+    public ElementsCollection getMenuElement() {
         return floatMenu;
-      }
+    }
 
     @Step("Прокручиваем страницу до текста")
-    public void scrollByText(String textElement){
+    public void scrollByText(String textElement) {
         $(By.linkText(textElement)).scrollIntoView(true);
+    }
+
+    @Step("Получаем Заголовок страницы")
+    @Attachment("Заголовок:")
+    public String getTitle() {
+        return title.getText();
     }
 }
