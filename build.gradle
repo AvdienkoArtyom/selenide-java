@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'maven'
     id 'io.qameta.allure' version '2.8.1'
 }
 
@@ -13,7 +12,7 @@ allure {
     autoconfigure = true
     aspectjweaver = true
     version = allureVersion
-
+    configuration = 'testImplementation'
     clean = true
 
     useJUnit5 {
@@ -23,9 +22,7 @@ allure {
 
 test {
     ignoreFailures = true
-    useJUnitPlatform {
-
-    }
+    useJUnitPlatform()
 
     systemProperty("junit.jupiter.execution.parallel.enabled", "true")
     systemProperty("junit.jupiter.execution.parallel.config.strategy", "dynamic")
@@ -41,8 +38,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform('org.junit:junit-bom:5.7.2'))
-    testImplementation('org.junit.jupiter:junit-jupiter')
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.8.2'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.2'
     testImplementation group: 'com.codeborne', name: 'selenide', version: '5.22.2'
     testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
     testImplementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.14.0'

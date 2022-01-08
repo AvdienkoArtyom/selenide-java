@@ -6,7 +6,6 @@ import com.herokuapp.the_internet.core.model.java_script_alerts.JavaScriptAlerts
 import com.herokuapp.the_internet.core.model.java_script_alerts.JavaScriptAlertsPO;
 import com.herokuapp.the_internet.core.validation.Validation;
 import io.qameta.allure.Description;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
