@@ -119,7 +119,6 @@ public class Validation {
         }
     }
 
-
     @Step("Сравнение скачаного файла")
     public static void checkTwoFile(Path expected, Path actual) {
         ComparingTwoFiles.comparing(expected, actual);
