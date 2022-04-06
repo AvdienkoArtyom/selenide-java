@@ -31,4 +31,21 @@ public class ABTestingTest {
                 ABTestingData.FIRST_PARAGRAPH);
 
     }
+
+    @Test
+    @Description("A/B Testing")
+    public void abTestingTest1() {
+
+        ABTestingPO pageObject = open(ABTestingPO.URL, ABTestingPO.class);
+
+        Validation.checkingOptionsForExpectedHeaders(
+                pageObject,
+                ABTestingData.FIRST_RANDOM_TITLE,
+                ABTestingData.SECOND_RANDOM_TITLE);
+
+        Validation.checkText(
+                pageObject.getFirstParagraph(),
+                ABTestingData.FIRST_PARAGRAPH);
+
+    }
 }
